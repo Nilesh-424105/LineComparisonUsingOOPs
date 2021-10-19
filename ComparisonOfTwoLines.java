@@ -1,23 +1,19 @@
 package com.line.comparison;
 
-/* 
- *  Calculate Length Of Line
- */
-
 import java.util.Scanner;
 
 /*
- *  To Check Equality Of Lines
+ * To Check Comparison Of Two Lines
  */
 
-public class EqualityOfLines {
+public class ComparisonOfTwoLines {
 
 	// instance Variables
-	private int x1, y1, x2, y2, a1, b1, a2, b2;
-	private Double lengthOfLine1, lengthOfLine2;
+	int x1, y1, x2, y2, a1, b1, a2, b2;
+	Double lengthOfLine1, lengthOfLine2;
 
-	// instance Method to Calculate Length Of Lines
-	public void calculateLengthOfLines() {
+	// To Calculate Length of Lines
+	private void calculateLengthOfLines() {
 
 		Scanner line = new Scanner(System.in);
 
@@ -45,35 +41,34 @@ public class EqualityOfLines {
 
 		// Calculate length of line1
 		lengthOfLine1 = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-		System.out.println("length_of_line1 = " + lengthOfLine1);
+		System.out.println("length_1 = " + lengthOfLine1);
 
 		// Calculate length of line2
 		lengthOfLine2 = Math.sqrt((a2 - a1) * (a2 - a1) + (b2 - b1) * (b2 - b1));
-		System.out.println("length_of_line2 = " + lengthOfLine2);
+		System.out.println("length_2 = " + lengthOfLine2);
 
 	}
 
-	// By Using Equals Method To Check Equality of Lines
-	private void checkEqualityOfLines() {
+	// By Using CompareTo Method to check Comparison of lines
+	private void compareTwoLines() {
 
-		boolean equality = lengthOfLine1.equals(lengthOfLine2);
-
-		if (equality) {
-			System.out.println("Both line are equal");
-
-		} else {
-			System.out.println("Both line are not equal");
-		}
+		int comparelines = lengthOfLine1.compareTo(lengthOfLine2);
+		if (comparelines > 0) {
+			System.out.println("line_1 Greater Than line_2");
+		} else if (comparelines < 0) {
+			System.out.println("line_1 Less Than line_2");
+		} else
+			System.out.println("Both lines are Equal");
 	}
 
 	public static void main(String[] args) {
 
-		System.out.println("Welcome to line Comparision Computation Program");
+		System.out.println("To Check Comparison of Two Lines: ");
 
-		// creation of Object
-		EqualityOfLines equalityOfLines = new EqualityOfLines();
-		equalityOfLines.calculateLengthOfLines();
-		equalityOfLines.checkEqualityOfLines();
+		// Creation of Object
+		ComparisonOfTwoLines comparisonOfTwoLines = new ComparisonOfTwoLines();
+		comparisonOfTwoLines.calculateLengthOfLines();
+		comparisonOfTwoLines.compareTwoLines();
 	}
 
 }
